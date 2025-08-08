@@ -20,7 +20,7 @@ if ! hyprctl monitors | grep -q "$VIRTUAL_MONITOR"; then
 fi
 
 echo "[wayvnc] Starting WayVNC on $VIRTUAL_MONITOR..."
-wayvnc 0.0.0.0 5902 "$VIRTUAL_MONITOR" > /tmp/wayvnc.log 2>&1 &
+wayvnc 0.0.0.0 5902 "$VIRTUAL_MONITOR" &
 WAYVNC_PID=$!
 
 wait $WAYVNC_PID

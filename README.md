@@ -9,7 +9,7 @@ Create a **ghost monitor** (a virtual headless output) in [Hyprland](https://git
 
 ---
 
-## ✨ Features
+## Features
 
 - Dynamically creates a **virtual headless monitor**
 - Automatically **cleans up** on exit
@@ -187,11 +187,11 @@ update-desktop-database ~/.local/share/applications/
 
 ### 5. Launch It Like Any App!
 
-Now you can find **WayVNC Ghost Monitor** in your app launcher or application menu just like any other program — with your custom ghost icon 😄
+Now you can find **WayVNC Ghost Monitor** in your app launcher or application menu just like any other program — with your custom ghost icon
 
 ---
 
-## 🧪 Tested With
+## Tested With
 
 - **Hyprland:** version 0.48.0 (released March 2025)  
 - **HyDE Hyprland:** latest version as of March 2025  
@@ -202,6 +202,6 @@ Now you can find **WayVNC Ghost Monitor** in your app launcher or application me
 
 ---
 
-## 🙌 Acknowledgments
+## Acknowledgments
 
 Thanks to the Hyprland, WayVNC, and Linux desktop communities for making modern, dynamic workflows possible.

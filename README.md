@@ -1,35 +1,35 @@
-# 👻 WayVNC Ghost Monitor for Hyprland
+# VNC Virtual monitor for Hyprland
 
-> ⚠️ **Disclaimer:** This is **not an official WayVNC package**.  
-> It’s a community-created script for integrating WayVNC with Hyprland using a headless (ghost) monitor setup.
+This is a modified version of [this script](https://github.com/Zellington3/Ghost-Monitor-Wayvnc-Hyprland) that supports using the ['split-monitor-workspaces'](https://github.com/Duckonaut/split-monitor-workspaces) hyprland plugin. make sure to install that if you want to use this. otherwise use the original version.
+
 
 Create a **ghost monitor** (a virtual headless output) in [Hyprland](https://github.com/hyprwm/Hyprland) and stream it wirelessly using [WayVNC](https://github.com/any1/wayvnc).
 
-👻 **Seamlessly turn any laptop or PC** with a VNC viewer (like TigerVNC) into a **wireless display** for your Hyprland setup — with **automatic cleanup** when you're done!
+**Seamlessly turn any laptop or PC** with a VNC viewer (like TigerVNC) into a **wireless display** for your Hyprland setup — with **automatic cleanup** when you're done!
 
 ---
 
 ## ✨ Features
 
-- 🖥️ Dynamically creates a **virtual headless monitor**
-- 🔀 Assigns a workspace to the ghost monitor
-- 🧼 Automatically **cleans up** on exit (moves workspace back and stops WayVNC)
-- 🧠 Keeps your **real monitor focused**
-- 🌐 Works with **any VNC viewer** like TigerVNC or RealVNC
+- Dynamically creates a **virtual headless monitor**
+- Automatically **cleans up** on exit
+- Keeps your **real monitor focused**
+- Works with **any VNC viewer** like TigerVNC or RealVNC
 
 ---
 
-## ⚙️ Requirements
+## Requirements
 
 - [Hyprland](https://github.com/hyprwm/Hyprland) (version 0.48.0 or later)
 - [WayVNC](https://github.com/any1/wayvnc) (version 0.9.1 or later)
-- A POSIX-compatible shell like `bash` or `zsh`  
-  > 📝 This script is written in `zsh`, but it works in `bash` too — just update the (`#!/usr/bin/env bash`) if needed.
+- [split-monitor-workspaces](https://github.com/Duckonaut/split-monitor-workspaces)
+- A POSIX-compatible shell like `bash`
 
-### 📦 WayVNC Dependencies
+### WayVNC Dependencies
 
 Ensure the following packages are installed (package names may vary by distribution):
 
+- 'wayvnc'
 - `wayland`
 - `pixman`
 - `glibc`
@@ -46,11 +46,12 @@ You can install them using your distro's package manager (e.g., `pacman`, `apt`,
 
 ---
 
-### 🖥️ Platform Compatibility
+### Platform Compatibility
 
 This script is designed **specifically for Linux systems running Hyprland on Wayland** to allow them to connect to **any system that can run a compatible VNC viewer**. It will **not work on**:
 
-- macOS or Windows
+- Any real Operating Systems like Linux, FreeBSD, Windows.
+- Including parody "Operating systems" like macos ios, iphone. (this way you are actually making your >1000 dollar aluminium/titanium somewat useful for once!)
 - X11-based desktop environments
 - Other compositors like GNOME, KDE Plasma, or Sway
 
@@ -58,7 +59,7 @@ It relies on `hyprctl`, which is exclusive to Hyprland, and WayVNC, which only r
 
 ---
 
-## 🛠️ Setup
+## Setup
 
 1. **Clone the repository:**
    ```bash
@@ -79,7 +80,7 @@ It relies on `hyprctl`, which is exclusive to Hyprland, and WayVNC, which only r
    REAL_MONITOR="DP-2"            # Your real physical monitor
    ```
 
-   > ⚠️ **NOTE:** If you already use 3 or more workspaces or monitors by default, consider setting `VIRTUAL_WORKSPACE` to a higher number (e.g., 10 or 11) to avoid conflicts or unexpected behavior.
+   > **NOTE:** If you already use 3 or more workspaces or monitors by default, consider setting `VIRTUAL_WORKSPACE` to a higher number (e.g., 10 or 11) to avoid conflicts or unexpected behavior.
 
 4. **Hyprland Configuration (if needed):**
 
@@ -92,17 +93,17 @@ It relies on `hyprctl`, which is exclusive to Hyprland, and WayVNC, which only r
    monitor=HEADLESS-2,1920x1080@60,0x0,1
    ```
 
-   > ⚠️ **NOTE:** While this script attempts to dynamically create a headless monitor using `hyprctl output create`, **some setups (especially with HyDE Hyprland or stricter monitor management)** may still require the monitor to be declared manually for consistent behavior.
+   > **NOTE:** While this script attempts to dynamically create a headless monitor using `hyprctl output create`, **some setups (especially with HyDE Hyprland or stricter monitor management)** may still require the monitor to be declared manually for consistent behavior.
    >
    > We **intentionally omitted automatic config file editing** from the script to prevent potential issues with your Hyprland setup. It's safer to manually add the entry and back up your configuration beforehand.
 
-   ✅ If you're using dynamic monitor creation in regular Hyprland and don’t have a static layout, this step may not be necessary.
+   If you're using dynamic monitor creation in regular Hyprland and don’t have a static layout, this step may not be necessary.
 
-   🔧 For GUI-based monitor management, consider using [ngx-displays](https://github.com/Aylur/ngx-displays).
+   For GUI-based monitor management, consider using [ngx-displays](https://github.com/Aylur/ngx-displays).
 
 ---
 
-## 🚀 Usage
+## Usage
 
 1. **Run the script:**
    ```bash
@@ -114,11 +115,11 @@ It relies on `hyprctl`, which is exclusive to Hyprland, and WayVNC, which only r
    vncviewer your-hyprland-ip:5900
    ```
 
-   > 💡 You can use any VNC viewer like [TigerVNC](https://tigervnc.org/) or [RealVNC Viewer](https://www.realvnc.com/en/connect/download/viewer/).
+   > You can use any VNC viewer like [TigerVNC](https://tigervnc.org/) or [RealVNC Viewer](https://www.realvnc.com/en/connect/download/viewer/).
 
 ---
 
-## 🧼 Cleanup on Exit
+## Cleanup on Exit
 
 When you press `Ctrl+C` or the script ends:
 - WayVNC is stopped
@@ -129,7 +130,7 @@ No manual cleanup required!
 
 ---
 
-## 🖱️ Add as a Launchable Desktop App (with Icon)
+## Add as a Launchable Desktop App (with Icon)
 
 You can make this script behave like a regular application with a desktop icon and launcher menu entry:
 
@@ -152,7 +153,7 @@ Type=Application
 Categories=Utility;Network;
 ```
 
-> 💡 Replace `/absolute/path/to/...` with the full paths to your script and icon.
+> Replace `/absolute/path/to/...` with the full paths to your script and icon.
 
 ---
 

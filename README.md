@@ -50,8 +50,8 @@ You can install them using your distro's package manager (e.g., `pacman`, `apt`,
 
 This script is designed **specifically for Linux systems running Hyprland on Wayland** to allow them to connect to **any system that can run a compatible VNC viewer**. It will **not work on**:
 
-- Any real Operating Systems like Linux, FreeBSD, Windows.
-- Including parody "Operating systems" like macos ios, iphone. (this way you are actually making your >1000 dollar aluminium/titanium somewat useful for once!)
+- Windows, Android
+- Including parody/Toy "Operating systems" like macos ios, iphone. (But you can make your >1000 dollar aluminium/titanium toy somewat useful for once!)
 - X11-based desktop environments
 - Other compositors like GNOME, KDE Plasma, or Sway
 
